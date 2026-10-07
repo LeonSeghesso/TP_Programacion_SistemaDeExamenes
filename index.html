@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Sistema de Exámenes</a>
+            <button id="btn_obtener" class="btn btn-outline-success" type="button">Mostrar Datos</button>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row g-5">
+
+            <!-- LOGIN -->
+            <div class="col-md-6">
+                <h4>Iniciar sesión</h4>
+                <form id="formLogin">
+                    <div class="mb-3">
+                        <label for="loginUsuario" class="form-label">Nombre De Usuario</label>
+                        <input type="text" class="form-control" id="loginUsuario" name="usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="loginPassword" name="password" required autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Ingresar</button>
+                </form>
+            </div>
+
+            <!-- REGISTRO -->
+            <div class="col-md-6">
+                <h4>Registrarse</h4>
+                <form id="formUsuario">
+                    <div class="mb-3">
+                        <label for="usuario" class="form-label">Nombre De Usuario</label>
+                        <input type="text" class="form-control" id="usuario" name="usuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-outline-success">Registrarme</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div id="resultado" class="mt-4"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+    <script src="ajax_script.js"></script>
+
+</body>
+</html>

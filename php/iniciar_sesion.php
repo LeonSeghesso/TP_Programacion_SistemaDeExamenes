@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: application/json');
 include("conexion.php");
 
@@ -17,6 +18,8 @@ $resultado = $stmt->get_result();
 $fila = $resultado->fetch_assoc();
 
 if ($fila && password_verify($password, $fila['password'])) {
+    session_regenerate_id(true);
+    $_SESSION['id_usuario'] = $fila['id'];
     echo json_encode(['exito' => true, 'id' => $fila['id'], 'mensaje' => 'Bienvenido, ' . $usuario . '!']);
 } else {
     echo json_encode(['exito' => false, 'mensaje' => 'Usuario o contraseña incorrectos']);

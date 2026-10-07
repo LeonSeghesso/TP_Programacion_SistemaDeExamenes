@@ -10,6 +10,16 @@ if (empty($usuario) || empty($password)) {
     exit;
 }
 
+// No permitir dos usuarios con el mismo nombre
+$stmt = $conn->prepare("SELECT id FROM usuarios WHERE usuario = ?");
+$stmt->bind_param("s", $usuario);
+$stmt->execute();
+if ($stmt->get_result()->num_rows > 0) {
+    echo json_encode(['exito' => false, 'mensaje' => 'Ese nombre de usuario ya está en uso']);
+    exit;
+}
+$stmt->close();
+
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 $stmt = $conn->prepare("INSERT INTO usuarios (usuario, password) VALUES (?, ?)");

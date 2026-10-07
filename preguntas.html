@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas del examen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="examenes.html">Sistema de Exámenes</a>
+            <div class="d-flex gap-2">
+                <a href="examenes.html" class="btn btn-outline-light">Mis exámenes</a>
+                <button id="btnCerrarSesion" class="btn btn-outline-success" type="button">Cerrar sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h4 id="tituloExamen">Preguntas</h4>
+
+        <div id="mensaje"></div>
+
+        <div id="contenido" class="d-none">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Sorteo de preguntas</h5>
+                    <div class="row g-2 align-items-end">
+                        <div class="col-auto">
+                            <label for="cantidadPreguntas" class="form-label">Cantidad de preguntas</label>
+                            <input type="number" class="form-control" id="cantidadPreguntas" min="1" value="3">
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" id="btnSortear" class="btn btn-outline-primary">Sortear preguntas</button>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-2 mb-0" id="infoPreguntas"></p>
+                    <div id="mensajeSorteo" class="mt-3"></div>
+                    <ol id="preguntasSorteadas" class="list-group list-group-numbered mt-3"></ol>
+                </div>
+            </div>
+
+            <form id="formPregunta" class="mb-4">
+                <label for="textoPregunta" class="form-label">Nueva pregunta</label>
+                <textarea class="form-control mb-2" id="textoPregunta" rows="2" maxlength="1000" placeholder="Escribí la pregunta" required></textarea>
+                <button type="submit" class="btn btn-outline-success">Agregar pregunta</button>
+            </form>
+
+            <div id="listaPreguntas" class="list-group mb-5"></div>
+        </div>
+    </div>
+
+    <!-- Ventana para editar una pregunta -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="formEditar">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar pregunta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="textoEditar" class="form-label">Pregunta</label>
+                        <textarea class="form-control" id="textoEditar" rows="3" maxlength="1000" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-outline-success">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+    <script src="js/preguntas.js"></script>
+</body>
+</html>

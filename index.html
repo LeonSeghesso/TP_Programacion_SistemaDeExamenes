@@ -3,61 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagina!</title>
+    <title>Sistema de Exámenes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="css/estilos.css" rel="stylesheet">
 </head>
-<body>
+<body class="login-page">
 
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Sistema de Exámenes</a>
-            <button id="btn_obtener" class="btn btn-outline-success" type="button">Mostrar Datos</button>
-        </div>
-    </nav>
+    <main class="card login-card">
 
-    <div class="container mt-5">
-        <div class="row g-5">
-
-            <!-- LOGIN -->
-            <div class="col-md-6">
-                <h4>Iniciar sesión</h4>
-                <form id="formLogin">
-                    <div class="mb-3">
-                        <label for="loginUsuario" class="form-label">Nombre De Usuario</label>
-                        <input type="text" class="form-control" id="loginUsuario" name="usuario" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="loginPassword" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="loginPassword" name="password" required autocomplete="off">
-                    </div>
-                    <button type="submit" class="btn btn-outline-primary">Ingresar</button>
-                </form>
-            </div>
-
-            <!-- REGISTRO -->
-            <div class="col-md-6">
-                <h4>Registrarse</h4>
-                <form id="formUsuario">
-                    <div class="mb-3">
-                        <label for="usuario" class="form-label">Nombre De Usuario</label>
-                        <input type="text" class="form-control" id="usuario" name="usuario" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" required autocomplete="off">
-                    </div>
-                    <button type="submit" class="btn btn-outline-success">Registrarme</button>
-                </form>
-            </div>
-
+        <div class="login-header">
+            <div class="login-icono">📝</div>
+            <h1 class="h4 mb-1">Sistema de Exámenes</h1>
+            <p class="mb-0 small text-white-50">Creá tus exámenes y sorteá preguntas</p>
         </div>
 
-        <div id="resultado" class="mt-4"></div>
-    </div>
+        <div class="card-body p-4">
+
+            <ul class="nav nav-pills nav-fill mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-login" data-bs-toggle="pill" data-bs-target="#panel-login" type="button" role="tab" aria-controls="panel-login" aria-selected="true">Iniciar sesión</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-registro" data-bs-toggle="pill" data-bs-target="#panel-registro" type="button" role="tab" aria-controls="panel-registro" aria-selected="false">Registrarse</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <!-- LOGIN -->
+                <div class="tab-pane fade show active" id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+                    <div id="mensajeLogin"></div>
+                    <form id="formLogin">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="loginUsuario" name="usuario" placeholder="Nombre de usuario" autocomplete="username" required>
+                            <label for="loginUsuario">Nombre de usuario</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Contraseña" autocomplete="current-password" required>
+                            <label for="loginPassword">Contraseña</label>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 py-2">Ingresar</button>
+                    </form>
+                </div>
+
+                <!-- REGISTRO -->
+                <div class="tab-pane fade" id="panel-registro" role="tabpanel" aria-labelledby="tab-registro">
+                    <div id="mensajeRegistro"></div>
+                    <form id="formUsuario">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre de usuario" autocomplete="username" required>
+                            <label for="usuario">Nombre de usuario</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" autocomplete="new-password" required>
+                            <label for="password">Contraseña</label>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 py-2">Crear cuenta</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
-    <script src="ajax_script.js"></script>
-
+    <script src="js/ajax_script.js"></script>
 </body>
 </html>
